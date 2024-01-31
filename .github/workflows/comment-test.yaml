@@ -1,0 +1,22 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI-Test2
+
+# Controls when the workflow will run
+on:
+ issue_comment:
+    types: [created]
+
+jobs:
+  vars-read:
+    if: contains(github.evet.commet.body, 'ok!')
+    runs-on: ubuntu-latess
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Read file content
+        run: | 
+          test1=`ls -ltr /home/runner/work/GitAction-Test/GitAction-Test/ | tail -1 | awk '{print $9}'`
+          echo $test1
+        
