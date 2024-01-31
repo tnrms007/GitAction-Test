@@ -16,7 +16,4 @@ jobs:
       - name: Read file content
         run: |
           test1=`pwd`
-      
-      - name: Show Test1 Directory
-        run: |
           echo Test1 directory path: $test1
