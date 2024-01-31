@@ -1,0 +1,27 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI-Test1
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" , "**/info.txt" ]
+
+jobs:
+  read-file:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Read file content
+        run: |
+          # Loop through all the new files
+          for file in $(git diff --name-only HEAD^..HEAD); do
+            # Check if the file is info.txt
+            if [[ $file == *info.txt ]]; then
+              # Print the content of the file
+              cat "$file"
+            fi
+          done
