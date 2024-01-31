@@ -4,9 +4,10 @@ name: CI-Test1
 
 # Controls when the workflow will run
 on:
+  create:
   # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "main" , "**/info.txt" ]
+  #push:
+    #branches: [ "main" , "**/info.txt" ]
 
 jobs:
   read-file:
@@ -18,5 +19,5 @@ jobs:
       - name: Read file content
         run: | 
           test1=`ls -ltr /home/runner/work/GitAction-Test/GitAction-Test/ | tail -1 | awk '{print $9}'`
-          cat /home/runner/work/GitAction-Test/GitAction-Test/$test1
+          echo $test1
         
