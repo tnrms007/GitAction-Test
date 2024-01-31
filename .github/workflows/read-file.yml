@@ -14,7 +14,9 @@ jobs:
         uses: actions/checkout@v2
       
       - name: Read file content
-        run: | 
-          test1=`ls -ltr /home/runner/work/GitAction-Test/GitAction-Test/ | tail -1 | awk '{print $9}'`
-          echo $test1
-        
+        run: |
+          echo "export TEST1=$(pwd)" >> $GITHUB_ENV
+      
+      - name: Show Test1 Directory
+        run: |
+          echo "Test1 directory path: $TEST1"
