@@ -15,8 +15,8 @@ jobs:
       
       - name: Read file content
         run: |
-          echo "export TEST1=$(pwd)" >> $GITHUB_ENV
+          test1=`pwd`
       
       - name: Show Test1 Directory
         run: |
-          echo "Test1 directory path: $TEST1"
+          echo Test1 directory path: $test1
