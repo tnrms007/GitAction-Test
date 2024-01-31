@@ -18,7 +18,7 @@ jobs:
       - name: Read file content
         run: |
           # Loop through all the new files
-          for file in $(git diff --name-only HEAD^..HEAD); do
+          for file in $(git diff --name-only ${{ github.event.before }}..${{ github.sha }}); do
             # Check if the file is info.txt
             if [[ $file == *info.txt ]]; then
               # Print the content of the file
