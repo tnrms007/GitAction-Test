@@ -9,7 +9,7 @@ on:
 
 jobs:
   vars-read:
-    if: contains(github.evet.commet.body, 'ok!')
+    if: contains(github.event.comment.body, 'ok!')
     runs-on: ubuntu-latess
     steps:
       - name: Checkout repository
