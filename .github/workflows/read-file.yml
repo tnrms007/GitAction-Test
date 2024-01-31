@@ -18,5 +18,7 @@ jobs:
           path: /home/runner/test1
       
       - name: Read file content
-        run: ls -ltr /home/runner/test1 | tail -1 | awk '{print $9}' | xargs cat 
+        run: | 
+          test1=`ls -ltr /home/runner/work/GitAction-Test/GitAction-Test/ | tail -1 | awk '{print $9}'`
+          cat /home/runner/work/GitAction-Test/GitAction-Test/$test1
         
