@@ -10,7 +10,7 @@ on:
 jobs:
   vars-read:
     if: contains(github.event.comment.body, 'ok!')
-    runs-on: ubuntu-latess
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
