@@ -14,14 +14,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+        with:
+          path: /home/runner/test1
       
       - name: Read file content
-        run: |
-          # Loop through all the new files
-          for file in $(git diff --name-only ${{ github.event.before }}..${{ github.sha }}); do
-            # Check if the file is info.txt
-            if [[ $file == *info.txt ]]; then
-              # Print the content of the file
-              cat "$file"
-            fi
-          done
+        run: ls -ltr /home/runner/test1 | tail -1 | awk '{print $9}' | xargs cat 
+        
