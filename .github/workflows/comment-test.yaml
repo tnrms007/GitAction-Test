@@ -5,7 +5,7 @@ name: CI-Test2
 # Controls when the workflow will run
 on:
  issue_comment:
-    types: [created]
+    types: [created, edited, deleted]
 
 jobs:
   vars-read:
